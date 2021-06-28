@@ -1,0 +1,25 @@
+.card-title{
+text-align: left;
+ font-size: large;   
+}
+
+.icn:hover{
+    background-color: blue;
+}
+
+.card-subtitle{
+
+    
+    color:violet;
+}
+
+.card-text{
+    font-size: x-large;
+    color: white;
+}
+
+.button{
+    font-size: larger;
+    background-color: var(--sky-blue);
+}
+

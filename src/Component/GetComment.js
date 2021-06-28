@@ -1,0 +1,194 @@
+import axios from "axios";
+import React from "react";
+
+import { Link } from 'react-router-dom';
+
+import authHeader from '../LoginService/auth-header';
+import authService from "../LoginService/auth.service";
+
+class GetComment extends React.Component{
+
+    
+    // constructor(props){
+    //     super(props);
+    //     this.state={
+    //         comment: [],
+    //     };
+    // }
+    
+    // componentDidMount(){
+    //     axios.get(
+    //         `http://localhost:8080/GetAllComment`,{ headers: authHeader() } )
+    //     .then((result) => {
+    //         console.log(result);
+    //         this.setState({
+    //             comment: result.data,
+    //         });
+    //       //  console.log(this.state.theatres);
+    //     });
+    // }
+
+    // homePage = (event) => {
+    //     this.props.history.push("/");
+    // };
+    // render(){
+    //     return(
+    //         <div>
+    //             <h1>
+    //                 <span className="badge badge-dark">View Tweets</span>
+    //             </h1>
+    //             <table class="table border shadow" border="2">
+    //             <thead class="thead-dark">
+    //                    <tr>
+    //                        <th scope="col">comment_id</th>
+    //                        <th scope="col">comment_content</th>
+    //                        {/* <th scope="col"></th>
+    //                        <th scope="col">comment_count</th>
+    //                        <th scope="col">created_at</th>
+    //                        <th scope="col">updated_at</th>
+    //                        <th scope="col">user_id</th>
+    //                        <th>Action</th> */}
+    //                    </tr>
+    //                </thead>
+                   
+    //             <tbody>
+    //             {this.state.comment.map(m1 => (
+    //                 <tr>
+    //                     <td>{m1.comment_id}</td>
+    //                     <td>{m1.comment_content}</td>
+    //                     {/* <td>{m1.like_count}</td>
+    //                     <td>{m1.comment_count}</td>
+    //                     <td>{m1.created_at}</td>
+    //                     <td>{m1.updated_at}</td>
+    //                     <td>{m1.user_id}</td> */}
+    //                     {/* <td>
+    //                                 <Link  
+    //                                     className="btn btn-primary"
+    //                                     to={`/movies/view/${m1.movieName}/${m1.movieTheatre}/${m1.movieDate}/${m1.movieTime}/booking`}
+    //                                 >
+    //                                     Book
+    //                                 </Link>
+                                  
+    //                     </td> */ }
+                        
+    //                 </tr>
+    //             ))}
+    //             </tbody>
+    //             </table>
+
+    //             <div className="form-group">
+    //                 <button className="btn btn-primary" onClick={this.homePage}>
+    //                     Go Back
+    //                 </button>
+    //             </div>
+    //         </div>
+    //     );
+    // }
+
+
+    constructor(props) 
+    {
+      super(props);
+      this.state={AllComments:[],errMsg:""} ;
+      this.deletecomment=this.deletecomment.bind(this);
+    
+
+    }
+
+    id=this.props.children;
+componentDidMount(){
+    //console.log(AllComments);
+    const users=authService.getCurrentUser();
+    axios.get(`http://localhost:8080/GetCBTid/${this.id}`, { headers: authHeader() }).then((responseData) => {
+        console.log(responseData);
+        this.setState({ AllComments: responseData.data })
+        // console.log(product.productId);
+
+    }).catch((error) => {
+        console.log("Some error in reading the data ");
+        this.setState({ errMsg: "Error In Reading product Data" })
+
+    })
+  }
+
+  deletecomment= (e) =>{
+     // e.preventDefault();
+    axios
+    .delete(`http://localhost:8080/DeleteComment/`+ e,{ headers: authHeader() }
+    )
+    .then(
+      (result) => {
+        alert("Comment is deleted.");
+      },
+      (error) => {
+        alert("Comment is  deleted.");
+      }
+    );
+  this.props.history.push("/");
+
+
+  }
+
+  render()
+  {
+
+    var CommentList = this.state.AllComments.map(
+        (commentList,index)=>
+        {
+            return(<tr key={commentList.tweet_id}>
+                {/* <td>{commentList.tweet.tweet_id}</td> */}
+                <td>{commentList.comment_content}</td>
+                <td>{commentList.tweet.user.username}</td>
+                {/* <td><Link exact to={`/UpdateTweet/${tweetList.tweet_id}`} type="button">Update</Link></td> */}
+                {/* <td><Link exact to={'/}</td> */}
+                <td><Link exact to={`/DeleteComment/${commentList.comment_id}`} 
+                    type="button" onClick={()=>this.deletecomment(commentList.comment_id)}> Delete
+                    </Link></td>
+                  
+
+                </tr>
+            )
+        }
+    );
+    
+    return (
+        <div className="container-sm">
+           <div>
+              <div className="py-4" >
+       <table class="table border shadow" >
+                  <thead class="thead-dark">
+                   <h4   backgroung-color="black" align="center" padding="200px" > All Comments</h4>
+                   <h4 align="left"></h4>
+                   </thead>
+            <tbody>
+               <table border="1" class="table border shadow">  
+                  <tr>
+                  <th scope="col" className = "bg-dark text-white">Comment Content</th>
+                  {/* <th scope="col" className = "bg-dark text-white">Tweet</th>  */}
+                  <th scope="col" className = "bg-dark text-white">Username
+                  </th> 
+                  
+                  <th scope="col" className = "bg-dark text-white">Action
+                  </th> 
+                  </tr>
+                  
+                  { CommentList.reverse()}
+               </table> 
+            </tbody>
+        </table> 
+
+             
+        </div> 
+            </div>  
+        </div>
+    )
+    
+
+  }
+}
+
+
+
+
+
+export default GetComment;

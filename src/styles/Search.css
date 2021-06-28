@@ -1,0 +1,16 @@
+.card-text{
+    font-size: medium;
+    color: white;
+}
+
+.card-subtitle{
+    font-size: medium;
+    color: white;
+}
+
+.searching{
+    
+  font-size: larger;
+  
+  background-color: var(--sky-blue);
+}
