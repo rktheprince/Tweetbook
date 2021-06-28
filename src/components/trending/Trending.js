@@ -11,12 +11,11 @@ export const Trending = () => {
             <div>
                 <div className="search-box flex-align-center">
                  
-                <SearchIcon />
                     
                     {/* <input placeholder="Search Twitter" className="search-input w-100" type="text"  /> */}
                 </div>
-                <Search></Search>
-                <div className="trends-list m-0">
+                
+                <div className="trends-list" style={{marginTop:"30px"}}>
                     <TrendsList />
                 </div>
                 <div className="follow-list">

@@ -55,6 +55,8 @@ function App() {
             <Route exact path="/contactus" component={Contact}/>
             <Route exact path="/GetAllTweets" component={GetAllTweet}/>
             <Route exact path="/adminhome" component={AdminHomePage}/>
+            <Route exact path="/search" component={Search}/>
+            <Route exact path="/getcomment/:id" component={GetComment} />
           </Switch>
           <Footer/>
         </div>

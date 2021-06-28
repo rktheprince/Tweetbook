@@ -4,20 +4,23 @@ import { SmallAvatar } from '../images/avatars';
 import { Link } from 'react-router-dom';
 import profile from '../LoginComponent/profile.component';
 import { Route } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 export const Sidebar = () => {
     const profImageurl = 'https://pbs.twimg.com/profile_images/1247964769669136385/KVCROk2D_bigger.jpg';
     return (
         <div>
             <div className="side-nav-header">
-                <Logo />
+                
             </div>
             <div className="side-nav-items">
 
                 <ul className="p-0">
                     <li className="side-nav-item flex-align-center">
                         <div className="side-nav-item-holder">
-                            <HomeIcon />
-                            <span className="side-nav-text">Home</span>
+                        <Link to={"/mainhome"} className="nav-link">
+                            <FontAwesomeIcon icon={faHome} style={{fontSize:"large", color:"white", padding: "0rem", verticalAlign: "top"}}/>
+                            <span className="side-nav-text">Home</span></Link>
                         </div>
                     </li>
                     {/* <li className="side-nav-item flex-align-center">
@@ -56,16 +59,16 @@ export const Sidebar = () => {
                             {/* <SmallAvatar width="22" image={profImageurl} /> */}
                             {/* <span className="side-nav-text">Profile</span> */}
                 
-                            <Link to={"/profile"} className="nav-link"><h4>Profile</h4></Link>
+                            <Link to={"/profile"} className="nav-link"><FontAwesomeIcon icon={faUser} size="10x" style={{fontSize:"large", color:"white", padding: "0rem", verticalAlign: "top"}}/><span className="side-nav-text">Profile</span></Link>
                         </div>
                     </li>
                     <li className="side-nav-item flex-align-center">
                         <div className="side-nav-item-holder">
-                            <MoreIcon />
-                            <span className="side-nav-text">More</span>
+                            <Link to={"/search"} style={{verticalAlign:"middle"}}>
+                            <FontAwesomeIcon icon={faSearch} style={{fontSize:"large", color:"white", padding: "0rem", verticalAlign: "top"}}/>
+                            <span className="side-nav-text">Search</span></Link>
                         </div>
                     </li>
-
                 </ul>
             </div>
 

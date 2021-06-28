@@ -14,7 +14,9 @@ position: relative
     position: relative;
     display: flex;
     flex-direction: column;
-    min-width: 0;
+    width: 1000px !important;
+    padding:50px !important;
+    margin-left: 45px;
 }
 .coverimg{
     width: 100%; 

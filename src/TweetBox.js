@@ -58,12 +58,12 @@ class TweetBox extends React.Component {
   }
   render() {
     return (
-      <div style={{padding:"30px"}}>
+      <div style={{padding:"10px"}}>
       <div className="tweetBox" style={{borderRadius:"15px", backgroundColor:"#192734"}}>
         <form onSubmit={this.handleSubmit}>
           <div className="tweetBox__input">
             {/* <Avatar src="https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/themes/284832/settings_images/rLlCifhXRJiT0RoN2FjK_Logo_roundbackground_black.png" /> */}
-            <input style={{borderRadius:"15px", padding:"10px", marginRight:"20px"}}
+            <input style={{borderRadius:"15px", padding:"10px", marginRight:"20px", width:"200px"}}
               //onChange={(e) => this.handleChange(e.target.value)}
 
               value={this.state.tweet_content} onChange={(event) => this.setState({ tweet_content: event.target.value })}
@@ -71,7 +71,7 @@ class TweetBox extends React.Component {
               type="text"
             />
 
-            <button style={{borderRadius:"15px"}} type="submit" className="btn "
+            <button style={{borderRadius:"15px", width:"100px"}} type="submit" className="btn "
             >
               <b>Add Tweet</b>
             </button>

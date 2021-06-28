@@ -38,7 +38,7 @@ class GetAllTweet extends React.Component{
     }
 
     likecount=(tweet_id)=>{
-        axios.put(`http://localhost:8080/updatelike/${tweet_id}`,{ headers: authHeader() } )
+        axios.put(`http://localhost:8080/updatelike/${tweet_id}`,{} ,{ headers: authHeader() } )
         .then((result)=>{
             this.setState({ /* */ })
 
@@ -50,6 +50,20 @@ class GetAllTweet extends React.Component{
         })
 
     }
+
+    // commentcount=(tweet_id)=>{
+    //     axios.put(`http://localhost:8080/AddComment/${tweet_id}`,{} ,{ headers: authHeader() } )
+    //     .then((result)=>{
+    //         this.setState({ /* */ })
+
+    //         console.log(result);
+    //         // alert("tweet deleted Successfully")
+    //         // this.props.history.push("/admin");
+    //     }).catch((error) => {
+    //         alert(JSON.stringify("error: " + error));
+    //     })
+
+    // }
 
     // comment=(tweet_id)=>{
     //     <AddComment>{tweet_id}</AddComment>
@@ -80,30 +94,29 @@ class GetAllTweet extends React.Component{
     render(){
         let cardTweet=this.state.tweet.map(tweet=>(
             <div  style={{padding:"30px"}}>
-            <div class="card">
+            <div class="card" style={{margin:"0px auto", marginTop:"-40px"}}>
             <div class="card-body">
-              <p class="card-title">{tweet.user.first_name}</p>
-              <p class="card-text">{tweet.tweet_content}</p>
-              <h2 class="card-subtitle ">{tweet.created_at.split("T")[0]+" "+tweet.created_at.split("T")[1].split(".")[0]}</h2>
+            <h5 class="card-title">{tweet.user.first_name}&nbsp;&nbsp;{tweet.user.last_name}</h5>
+              <p class="card-title" style={{fontSize:"small"}}>@{tweet.user.username}</p>
               
-              <h6 class="card-subtitle ">Like: {tweet.like_count}     Comment: {tweet.comment_count}</h6>
+              <p class="card-text">{tweet.tweet_content}</p>
+              <h6 class="card-subtitle mb-2 text-muted" style={{fontSize:"small"}}>{tweet.created_at.split("T")[0]+" "+tweet.created_at.split("T")[1].split(".")[0]}</h6>
+              <h6 class="card-subtitle mb-2 text-muted" style={{fontSize:"medium"}}><FontAwesomeIcon icon={faHeart} onClick={()=>this.likecount(tweet.tweet_id)}/> : {tweet.like_count}  &nbsp;&nbsp;&nbsp;   <Link to={`getcomment/${tweet.tweet_id}`} ><FontAwesomeIcon icon={faComment}/> : {tweet.comment_count}</Link></h6>
               {/* <div className="card-content"> */}
-              <FontAwesomeIcon icon={faHeart} className="icn" size="2x" style={{marginRight:"20px"}}onClick={()=>this.likecount(tweet.tweet_id)}/>
-              <FontAwesomeIcon icon={faComment} size="2x" onClick={()=>this.likecount(tweet.tweet_id)}/>
+              {/* <Link to={`getcomment/${tweet.tweet_id}`} >Add Comment</Link> */}
               {/* <FavoriteBorderIcon/> */}
             </div>
             {/* <button className="btn btn-danger" onClick={() =>this.deletetweet(tweet.tweet_id)}style={{marginLeft: "580px"}}>Delete</button> */}
             {/* <exact to={`/ShowComments/${tweet.tweet_id}`} 
                     type="button"> View Comment */}
 
-      {
 
-this.state.show? <div>
-                  {/* tid={tweet.tweet_id} */}
-                  <h1><AddComment >{tweet.tweet_id}</AddComment></h1>
-                  <GetComment>{tweet.tweet_id}</GetComment>
-                  </div> : null}
-<button className="button" onClick={()=>{this.setState({show:!this.state.show})}}>{ this.state.show? 'Hide' : 'Show'} Comment</button>
+{/* // this.state.show? <div>
+//                   {/* tid={tweet.tweet_id} 
+//                   <h1><AddComment >{tweet.tweet_id}</AddComment></h1>
+//                   <GetComment>{tweet.tweet_id}</GetComment>
+//                   </div> : null}
+// <button className="button" onClick={()=>{this.setState({show:!this.state.show})}}>{ this.state.show? 'Hide' : 'Show'} Comment</button> */}
 
 {/* <button onClick={()=>this.comment(tweet.tweet_id)}>Add Comment</button> */}
                  

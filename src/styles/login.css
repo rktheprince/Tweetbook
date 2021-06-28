@@ -14,3 +14,21 @@
     font-family: "Fira Sans";
     text-align:"center";
 } */
+.card{
+    /* background-color: white; */
+}
+.form-control{
+    border-radius: 15px;
+}
+.label{
+    font-size:medium;
+}
+.btn{
+    padding:10px !important;
+    border-radius: 15px;
+    box-sizing: border-box !important;
+}
+.btn:hover{
+    border: 2px solid #1da1f2;
+    color:#1da1f2 !important;
+}

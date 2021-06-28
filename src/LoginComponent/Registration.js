@@ -4,6 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import AuthService from "../LoginService/auth.service";
+import '../styles/login.css';
 import './login.css';
 
 const required = value => {
@@ -179,10 +180,10 @@ export default class Registration extends Component {
 
   render() {
     return (
-      <div className="main col-md-12 col-sm-12 col-xs-12" style={{backgroundImage: "linear-gradient(0deg, skyblue, rgb(0, 89, 255))", padding:"50px 10px 90px 10px", width:"100%"}}>
+      <div className="main col-md-12 col-sm-12 col-xs-12" style={{backgroundImage: "linear-gradient(0deg, skyblue, rgb(0, 89, 255))", padding:"50px 10px 50px 10px", width:"100%"}}>
         <div style={{fontFamily: "Comic Sans MS", textAlign:"center", color:"white"}}><h1><b>TWEETBOOK</b></h1></div>
-        <div className="card">
-        <h2 style={{fontWeight: "900", fontFamily: "Geneva", textAlign:"center"}}>Registration</h2>
+        <div className="card" style={{margin: "0px auto", backgroundColor:"white"}}>
+        <h1 style={{fontWeight: "900", fontFamily: "Geneva", textAlign:"center", color:"black", fontSize: "x-large", marginTop:"-20px"}}>Registration</h1>
           <img
             src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
             alt="profile-img"
@@ -198,8 +199,8 @@ export default class Registration extends Component {
             {!this.state.successful && (
               <div>
                 <div className="form-group">
-                  <label htmlFor="username"><b>Username</b></label>
-                  <Input
+                  <label className="label" className="label" htmlFor="username"><b>Username</b></label>
+                  <Input style={{fontSize:"small"}} 
                     type="text"
                     placeholder="Enter any Username"
                     className="form-control"
@@ -211,8 +212,8 @@ export default class Registration extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="first_name"><b>Firstname</b></label>
-                  <Input
+                  <label className="label" htmlFor="first_name"><b>Firstname</b></label>
+                  <Input style={{fontSize:"small"}}
                     type="text"
                     placeholder="Enter your First Name"
                     className="form-control"
@@ -224,8 +225,8 @@ export default class Registration extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="last_name"><b>Lastname</b></label>
-                  <Input
+                  <label className="label" htmlFor="last_name"><b>Lastname</b></label>
+                  <Input style={{fontSize:"small"}}
                     type="text"
                     placeholder="Enter your Last Name"
                     className="form-control"
@@ -237,8 +238,8 @@ export default class Registration extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email"><b>Email</b></label>
-                  <Input
+                  <label className="label" htmlFor="email"><b>Email</b></label>
+                  <Input style={{fontSize:"small"}}
                     type="text"
                     placeholder="Enter your Email"
                     className="form-control"
@@ -250,8 +251,8 @@ export default class Registration extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="phone_no"><b>Phone no</b></label>
-                  <Input
+                  <label className="label" htmlFor="phone_no"><b>Phone no</b></label>
+                  <Input style={{fontSize:"small"}}
                     type="text"
                     placeholder="Enter your Phone Number"
                     className="form-control"
@@ -263,8 +264,8 @@ export default class Registration extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="password"><b>Password</b></label>
-                  <Input
+                  <label className="label" htmlFor="password"><b>Password</b></label>
+                  <Input style={{fontSize:"small"}}
                     type="password"
                     placeholder="Enter new Password"
                     className="form-control"
@@ -276,7 +277,7 @@ export default class Registration extends Component {
                 </div>
                 <br/>
                 <div className="form-group">
-                  <button className="btn btn-primary btn-block"><b>Sign Up</b></button>
+                  <button className="btn btn-primary btn-block" style={{fontSize:"small"}}><b>Sign Up</b></button>
                 </div>
               </div>
             )}

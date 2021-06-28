@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AuthService from "../LoginService/auth.service";
 import pic from '../images/icon.png';
+import '../App.css';
 
 export default class Navigation extends Component {
 
@@ -37,7 +38,7 @@ export default class Navigation extends Component {
             <div className="sticky-top">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <Link class="navbar-brand" style={{color:"#0059fe"}} to="/">
-                        <b><img src={pic} style={{width:"50px", height:"50px", fontFamily:"'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"}} />&nbsp;&nbsp;TWEETBOOK</b>
+                        <b><img src={pic} style={{width:"40px", height:"40px", fontFamily:"'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"}} />&nbsp;<span style={{fontSize:"large"}}>TWEETBOOK</span></b>
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -51,7 +52,7 @@ export default class Navigation extends Component {
                         </li>
 
                         {showAdminBoard && (
-                            <li className="nav-item">
+                            <li className="nav-item" style={{fontSize:"small"}}>
                                 <Link to={"/admin"} className="nav-link">
                                     Admin Board
                                 </Link>
@@ -69,12 +70,12 @@ export default class Navigation extends Component {
 
                     {currentUser ? (
                         <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
+                            <li className="nav-item" style={{fontSize:"small"}}>
                                 <Link to={"/profile"} className="nav-link">
                                     {currentUser.username}
                                 </Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item" style={{fontSize:"small"}}>
                                 <a href="/login" className="nav-link" onClick={this.logOut}>
                                     LogOut
                                 </a>
@@ -82,22 +83,22 @@ export default class Navigation extends Component {
                         </ul>
                     ) : (
                         <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
+                            <li className="nav-item" style={{fontSize:"small"}}>
                                 <Link to={"/login"} className="nav-link">
                                     <b>LOGIN</b>
                                 </Link>
                             </li>
 
-                            <li className="nav-item">
+                            <li className="nav-item" style={{fontSize:"small"}}>
                                 <Link to={"/register"} className="nav-link">
                                     <b>SIGNUP</b>
                                 </Link>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link to={"/contactus"} className="nav-link">
                                     <b>CONTACTUS</b>
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     )}
                     </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from "axios";
 import authHeader from '../LoginService/auth-header';
 import authService from '../LoginService/auth.service';
+import {Sidebar} from '../components/Sidebar';
 
 class Search extends React.Component {
     constructor(props) {
@@ -67,15 +68,17 @@ class Search extends React.Component {
 
         return (
 
-            <div>
-
-                <div className="py-4">
-                    <h2 >Search Users..!!</h2>
-                    <input type="text" className="form-control" id="username" placeholder="Type to search..."
+            <div className="row">
+                <div className="side-nav col-md-3">
+                                <Sidebar />
+                            </div>
+                <div className="py-4 col-md-9">
+                    <h1 style={{color:'black'}}>Search Users..!!</h1>
+                    <input type="text" style={{fontSize:"medium",  padding:"7px"}} className="form-control" id="username" placeholder="Type to search..."
                         value={this.state.users} onChange={(event) => this.setState({ users: event.target.value })}
                     />
                     <br />
-                    <button onClick={this.handleClick}>
+                    <button className="btn"  style={{fontSize:"medium", width:"200px", marginLeft:"330px"}} onClick={this.handleClick}>
                         search
 
                     </button>
@@ -84,13 +87,13 @@ class Search extends React.Component {
                 </div>
 
                 {this.state.user.map(m1 => (
-                    <div class="card">
+                    <div class="card" style={{marginLeft:"500px", marginTop:"-80px"}}>
                         <div class="card-body">
                             {/* <h5 class="card-title">{tweet.user.first_name}</h5> */}
                             {/* <h6 class="card-subtitle mb-2 text-muted">{tweet.created_at.split("T")[0]+" "+tweet.created_at.split("T")[1].split(".")[0]}</h6> */}
                             <p class="card-text">{m1.username}</p>
-                            <h6 class="card-subtitle ">First Name: {m1.first_name}   </h6>
-                            <h6 class="card-subtitle ">  Last Name: {m1.last_name}</h6>
+                            <h6 class="card-subtitle" style={{fontSize:"medium"}}>First Name: {m1.first_name}   </h6>
+                            <h6 class="card-subtitle" style={{fontSize:"medium"}}>  Last Name: {m1.last_name}</h6>
                             <button className="mr-4 btn btn-success" onClick={() => this.getFollowingUser(m1.username)}>Follow</button>
                         </div>
 

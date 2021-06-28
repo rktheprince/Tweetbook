@@ -92,10 +92,10 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="main col-md-12">
-        <div style={{fontFamily: "Comic Sans MS", textAlign:"center", color:"white"}}><h1><b>TWEETBOOK</b></h1></div>
-        <div className="card">
-          <h2 style={{fontWeight: "900", fontFamily: "Fira Sans", textAlign:"center"}}>Login</h2>
+      <div className="main col-md-12" style={{backgroundImage: "linear-gradient(0deg, skyblue, rgb(0, 89, 255))", padding:"50px 10px 50px 10px", height:"100vh" }}>
+        <div style={{fontFamily: "Comic Sans MS", textAlign:"center", color:"white", paddingTop:"0px"}}><h1><b>TWEETBOOK</b></h1></div>
+        <div className="card" style={{margin:"0px auto", marginTop:"0px", marginBottom:"0px", backgroundColor:"white"}}>
+          <h2 style={{fontWeight: "900", fontFamily: "Fira Sans", textAlign:"center", color:"black", fontSize: "x-large", marginTop:"-20px"}}>Login</h2>
           <img
             src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
             alt="profile-img"
@@ -109,8 +109,8 @@ export default class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username"><b>Username</b></label>
-              <Input
+              <label className="label" htmlFor="username"><b>Username</b></label>
+              <Input style={{fontSize:"small"}}
                 type="text"
                 className="form-control"
                 name="username"
@@ -122,8 +122,8 @@ export default class Login extends Component {
             </div>
 
             <div className="form-group">
-              <label htmlFor="password"><b>Password</b></label>
-              <Input
+              <label className="label" htmlFor="password"><b>Password</b></label>
+              <Input style={{fontSize:"small"}}
                 type="password"
                 className="form-control"
                 name="password"
@@ -135,7 +135,7 @@ export default class Login extends Component {
             </div>
             <br/>
             <div className="form-group">
-              <button
+              <button style={{fontSize:"small"}}
                 className="btn btn-primary btn-block"
                 disabled={this.state.loading}
               >

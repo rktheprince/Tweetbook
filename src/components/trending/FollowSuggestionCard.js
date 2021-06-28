@@ -17,7 +17,7 @@ export const FollowSuggestionCard = ({ whoToFollow }) => {
                 <span className="follow-card-handle">{whoToFollow.handle}</span>
             </div>
             <div className="right">
-                <div className="btn follow-btn text-center">
+                <div className="btn follow-btn text-center" style={{color:"white"}}>
                     Follow
                 </div>
             </div>

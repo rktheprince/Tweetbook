@@ -40,7 +40,7 @@ class AdminShowAllUsers extends Component {
     render() {
         let alluser= this.state.user1.map(
             u1 => 
-            <tr style={{color:"white"}} key={u1.user_id}>
+            <tr style={{color:"white", fontSize:"medium"}} key={u1.user_id}>
             <td>{u1.user_id}</td>
                  <td> {u1.username} </td>   
                  <td> {u1.first_name} </td>   
@@ -48,16 +48,16 @@ class AdminShowAllUsers extends Component {
                  <td> {u1.email_id}</td>
                  <td> {u1.phone_no} </td>   
                  <td>
-                     <button style={{marginLeft: "10px"}} onClick={ () => this.deleteUser(u1.user_id)} className="btn btn-danger">Delete </button>
+                     <button style={{marginLeft: "10px", width:"60px", height:"30px", fontSize:"small", lineHeight:"0px"}} onClick={ () => this.deleteUser(u1.user_id)} className="btn btn-danger">Delete </button>
                  </td>
             </tr>
         )
         return (
             <div>
-                 <h2 className="text-center">Users List</h2>
+                 <h2 className="text-center" style={{fontSize:"x-large", margin:"30px 0px"}}>Users List</h2>
                  <br></br>
                  <div className = "row">
-                        <table className = "table table-striped table-bordered" style={{color:"white"}}>
+                        <table className = "table table-striped table-bordered" style={{color:"white", fontSize:"medium", width:"90vw", margin:"0px auto"}}>
 
                             <thead>
                                 <tr>

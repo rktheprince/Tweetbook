@@ -137,7 +137,7 @@ class AddComment extends Component{
       //  console.log(user.id)
        // console.log(this.state.currentuser.id)
        var id= this.props.children;
-       console.log(id);
+      //  console.log(id);
         await axios
           .post(`http://localhost:8080/AddComment`, {
             comment_content: this.state.comment_content,
@@ -162,15 +162,15 @@ class AddComment extends Component{
             <form onSubmit={this.handleSubmit}>
               <div className="tweetBox__input">
                 {/* <Avatar src="https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/themes/284832/settings_images/rLlCifhXRJiT0RoN2FjK_Logo_roundbackground_black.png" /> */}
-                <input
+                <input style={{border: "2px solid #1da1f2", borderRadius: "15px", padding:"5px"}}
                   //onChange={(e) => this.handleChange(e.target.value)}
     
                   value={this.state.comment_content} onChange={(event) => this.setState({ comment_content: event.target.value })}
-                  placeholder="What's happening?"
+                  placeholder="Add a Comment"
                   type="text"
                 />
     
-                <button type="submit" className="btn btn-primary"
+                <button type="submit" style={{width:"200px", marginLeft:"10px"}} className="btn btn-primary"
                 >
                   Add Comment
                 </button>
