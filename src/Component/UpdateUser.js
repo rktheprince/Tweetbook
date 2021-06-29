@@ -122,40 +122,40 @@ class UpdateUser extends Component {
                 <br></br>
                    <div className = "container">
                         <div className = "row">
-                            <div className = "card col-md-6 offset-md-3 offset-md-3">
+                            <div className = "card col-md-6 offset-md-3 offset-md-3" style={{margin:"0px auto", color:"white"}}>
                                 {
                                     this.getTitle()
                                 }
                                 <div className = "card-body">
                                     <form>
                                     <div className = "form-group">
-                                            <label style={{ fontSize:15}}> User Id: </label>
+                                            <label style={{ fontSize:15, color:"white"}}> User Id: </label>
                                             <input placeholder="User Id" name="userid" className="form-control" style={{fontSize:15}}
                                                 value={this.state.user_id} />
                                         </div>
                                         <div className = "form-group">
-                                            <label style={{ fontSize:15}}> User Name: </label>
+                                            <label style={{ fontSize:15, color:"white"}}> User Name: </label>
                                             <input placeholder="User Name" name="username" className="form-control" style={{fontSize:15}}
                                                 value={this.state.username} onChange={this.changeUserNameHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label style={{ fontSize:15}}> First Name: </label>
+                                            <label style={{ fontSize:15, color:"white"}}> First Name: </label>
                                             <input  name="firstName" className="form-control" style={{fontSize:15}}
                                                 value={this.state.first_name} onChange={this.changeFirstNameHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label style={{ fontSize:15}}> Last Name: </label>
+                                            <label style={{ fontSize:15, color:"white"}}> Last Name: </label>
                                             <input  name="lastName" className="form-control" style={{fontSize:15}}
                                                 value={this.state.last_name} onChange={this.changeLastNameHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label style={{ fontSize:15}} > Email Id: </label>
+                                            <label style={{ fontSize:15, color:"white"}} > Email Id: </label>
                                             <input name="emailId" className="form-control" style={{fontSize:15}}
                                                 value={this.state.email_id} onChange={this.changeEmailHandler}/>
                                         </div>
 
                                         <div className = "form-group">
-                                            <label style={{ fontSize:15}}> Phone no: </label>
+                                            <label style={{ fontSize:15, color:"white"}}> Phone no: </label>
                                             <input placeholder="Phone no" name="phoneno" className="form-control" style={{fontSize:15}} 
                                                 value={this.state.phone_no} onChange={this.changePhoneNoHandler}/>
                                         </div>

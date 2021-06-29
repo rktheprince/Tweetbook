@@ -6,6 +6,7 @@ import FollowingUser from "../Component/FollowingUser";
 import FollowersUser from "../Component/FollowersUser";
 import GetSpecificTweet from "../Component/GetSpecificTweet";
 import { Sidebar } from '../components/Sidebar';
+import '../styles/abc.css';
 
 export default class profile extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ export default class profile extends Component {
     const { currentUser } = this.state;
     console.log(currentUser);
     return (
-      <div className="container-fluid size row" id="root-container" style={{backgroundColor:"white"}}>
+      <div className="size row" id="root-container" style={{backgroundColor:"white"}}>
         <div className="side-nav col-md-3">
           <Sidebar/>
         </div>
@@ -46,7 +47,7 @@ export default class profile extends Component {
             <div className="scroll-wrapper scrollbar-inner" >
               <div className="scrollbar-inner scroll-content scroll-scrollx_visible scroll-scrolly_visible">
 
-                <div className="card" style={{padding:"50px"}}>
+                <div className="xyz" style={{padding:"50px"}}>
                   <div className="row-no-gutters">
                     <div className="col">
                       <img alt="profile" draggable="true" src="https://icon-library.com/images/personal-profile-icon/personal-profile-icon-27.jpg" class="img-fluid rounded-circle"></img>
@@ -57,8 +58,8 @@ export default class profile extends Component {
                     </div>
                   </div>
                   <div className="pl-2">
-                    <h4 className="p-0 mb-0 ml-2 font-weight-bolder">{currentUser.first_name} {currentUser.last_name}</h4>
-                    <p className="p-0 mt-0 ml-2 mb-1 text-muted">{currentUser.username}</p>
+                    <h4 className="p-0 mb-0 ml-2 font-weight-bolder" style={{fontSize:"medium"}}>{currentUser.first_name} {currentUser.last_name}</h4>
+                    <p className="p-0 mt-0 ml-2 mb-1 text-muted" style={{fontSize:"medium"}}>@{currentUser.username}</p>
                   </div>
                   <div className="pl-2 mt-0">
                     <div className="row no-gutters ml-2 w-100 text-muted">

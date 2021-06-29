@@ -145,6 +145,7 @@ class AddComment extends Component{
             tweet_id: id
             }
           }, { headers: authHeader() }).then((response) => {
+            window.location.reload()
             console.log(
               "Comment added for Tweet Id :" + id
             );

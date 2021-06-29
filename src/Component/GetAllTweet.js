@@ -41,7 +41,7 @@ class GetAllTweet extends React.Component{
         axios.put(`http://localhost:8080/updatelike/${tweet_id}`,{} ,{ headers: authHeader() } )
         .then((result)=>{
             this.setState({ /* */ })
-
+            window.location.reload()
             console.log(result);
             // alert("tweet deleted Successfully")
             // this.props.history.push("/admin");
@@ -77,7 +77,7 @@ class GetAllTweet extends React.Component{
         axios.delete(`http://localhost:8080/Delete/${tweet_id}`,{ headers: authHeader() } )
         .then((result)=>{
             this.setState({ /* */ })
-
+            window.location.reload()
             console.log(result);
             alert("tweet deleted Successfully")
             this.props.history.push("/admin");

@@ -57,6 +57,7 @@ handleName=(event)=>{
             this.setState({
                 message:result.data
             })
+            window.location.reload()
 console.log(this.state.message)
 alert(this.state.message)
         }).catch((error) => {
@@ -70,10 +71,10 @@ alert(this.state.message)
         //this.state.following.map((list,index)=>{return <li> {index+1}  {list} </li>  })
         var followingList= this.state.following.map((list,index)=>{
             return (
-                list==="You are not following user"?<tr><td>You are not following user</td></tr>:
+                list==="You are not following user"?<tr><td style={{fontSize:"medium"}}>You are not following user</td></tr>:
             <tr key={index}>
                 {/* <td>{index+1}</td> */}
-                <td> {list}</td>
+                <td style={{fontSize:"medium"}}> @{list}</td>
                 <td><button onClick={() => this.handleName(list)} className="btn btn-info">Unfollow </button></td>
             </tr>  )})
         return(

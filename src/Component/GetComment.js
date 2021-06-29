@@ -110,14 +110,17 @@ class GetComment extends React.Component {
     })
   }
 
-  deletecomment = (e) => {
+  deletecomment = (e, i) => {
     // e.preventDefault();
     axios
       .delete(`http://localhost:8080/DeleteComment/` + e, { headers: authHeader() }
       )
       .then(
         (result) => {
+          // window.location.reload()
           alert("Comment is deleted.");
+          this.props.history.push("/getcomment/"+i);
+          console.log(i);
         },
         (error) => {
           alert("Comment is  deleted.");
@@ -140,7 +143,7 @@ class GetComment extends React.Component {
 
             <p class="card-text">{commentList.comment_content}</p>
             <Link exact to={`/DeleteComment/${commentList.comment_id}`}
-              type="button" className="btn" onClick={() => this.deletecomment(commentList.comment_id)}> Delete
+              type="button" className="btn" onClick={() => this.deletecomment(commentList.comment_id,this.props.match.params.id)}> Delete
             </Link>
             {/* <h6 class="card-subtitle mb-2 text-muted" style={{fontSize:"small"}}>{tweet.created_at.split("T")[0]+" "+tweet.created_at.split("T")[1].split(".")[0]}</h6>
         <h6 class="card-subtitle mb-2 text-muted" style={{fontSize:"medium"}}><FontAwesomeIcon icon={faHeart} onClick={()=>this.likecount(tweet.tweet_id)}/> : {tweet.like_count}  &nbsp;&nbsp;&nbsp;   <Link to={`getcomment/${tweet.tweet_id}`} ><FontAwesomeIcon icon={faComment}/> : {tweet.comment_count}</Link></h6> */}

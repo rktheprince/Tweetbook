@@ -59,12 +59,12 @@ export const Sidebar = () => {
                             {/* <SmallAvatar width="22" image={profImageurl} /> */}
                             {/* <span className="side-nav-text">Profile</span> */}
                 
-                            <Link to={"/profile"} className="nav-link"><FontAwesomeIcon icon={faUser} size="10x" style={{fontSize:"large", color:"white", padding: "0rem", verticalAlign: "top"}}/><span className="side-nav-text">Profile</span></Link>
+                            <Link to={"/profile"} className="nav-link"  style={{marginLeft:"2px"}}><FontAwesomeIcon icon={faUser} size="10x" style={{fontSize:"large", color:"white", padding: "0rem", verticalAlign: "top"}}/><span className="side-nav-text">Profile</span></Link>
                         </div>
                     </li>
                     <li className="side-nav-item flex-align-center">
                         <div className="side-nav-item-holder">
-                            <Link to={"/search"} style={{verticalAlign:"middle"}}>
+                            <Link to={"/search"} style={{verticalAlign:"middle", marginLeft:"7px"}}>
                             <FontAwesomeIcon icon={faSearch} style={{fontSize:"large", color:"white", padding: "0rem", verticalAlign: "top"}}/>
                             <span className="side-nav-text">Search</span></Link>
                         </div>

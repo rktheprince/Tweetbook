@@ -45,6 +45,7 @@ class TweetBox extends React.Component {
           user_id: user.id
         }
       }, { headers: authHeader() }).then((response) => {
+        window.location.reload()
         console.log(
           "Tweet added for User Id :" + this.state.currentuser.id
         );

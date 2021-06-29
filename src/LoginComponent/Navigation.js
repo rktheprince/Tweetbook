@@ -77,7 +77,7 @@ export default class Navigation extends Component {
                             </li>
                             <li className="nav-item" style={{fontSize:"small"}}>
                                 <a href="/login" className="nav-link" onClick={this.logOut}>
-                                    LogOut
+                                    Logout
                                 </a>
                             </li>
                         </ul>

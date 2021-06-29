@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import UserService from '../LoginService/user.service'
 import axios from 'axios';
 import authHeader from '../LoginService/auth-header'
+import { LaptopWindows } from '@material-ui/icons';
 
 class AdminShowAllUsers extends Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class AdminShowAllUsers extends Component {
     deleteUser(user_id){
         UserService.delete(user_id).then( res => {
             this.setState({user1: this.state.user1.filter(user => user.user_id !== user_id)});
+            window.location.reload();
             alert("User deleted Succesfully")
         }).catch((error) => {
             alert(JSON.stringify("error: " + error));
