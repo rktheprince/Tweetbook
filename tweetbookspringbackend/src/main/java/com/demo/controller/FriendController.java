@@ -78,4 +78,18 @@ public class FriendController{
 		return "Unfollowed user";
 	}
 
+	
+	//---------getcount
+	@GetMapping("/getfriend/following/count/{fid}")
+	@PreAuthorize("hasRole('ROLE_USER')")
+	public int getFollowingCount(@PathVariable ("fid") int fid) {
+	logger.info(""+service.getFollowing(fid));
+	return service.getFollowingCount(fid);
+	}
+	@GetMapping("/getfriend/follower/count/{follower}")
+	@PreAuthorize("hasRole('ROLE_USER')")
+	public int getFollowersCount(@PathVariable ("follower") int follower) {
+	logger.info(""+service.getFollowing(follower));
+	return service.getFollowersCount(follower);
+	}
 }

@@ -4,6 +4,7 @@ import "./TweetBox.css";
 import axios from "axios";
 import authHeader from './LoginService/auth-header';
 import authService from './LoginService/auth.service';
+import GetAllTweet from "./Component/GetAllTweet";
 class TweetBox extends React.Component {
   constructor(props) {
     super(props);
@@ -44,13 +45,14 @@ class TweetBox extends React.Component {
         user: {
           user_id: user.id
         }
+        
       }, { headers: authHeader() }).then((response) => {
         window.location.reload()
         console.log(
           "Tweet added for User Id :" + this.state.currentuser.id
         );
         alert(
-          "Tweet not added for User Id :" + this.state.currentuser.id
+          "Tweet  added for User Id :" + this.state.currentuser.id
         );
       })
       .catch((error) => {
@@ -83,6 +85,7 @@ class TweetBox extends React.Component {
         </form>
       </div>
       <hr />
+      <GetAllTweet></GetAllTweet>
       </div>
     );
 

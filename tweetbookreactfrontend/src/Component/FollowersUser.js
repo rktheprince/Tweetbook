@@ -52,7 +52,7 @@ class FollowersUser extends React.Component {
         //this.state.following.map((list,index)=>{return <li> {index+1}  {list} </li>  })
         var followersList = this.state.followers.map((list, index) => {
             return (
-                list === "No user is following you" ? <tr><td style={{fontSize:"medium"}}>No user is following you</td></tr> :
+                list === "No user is following you" ? <tr><td style={{color:'white'}}> No user is following you</td></tr> :
                     <tr key={index}>
                         {/* <td>{index+1}</td> */}
                         <td> {list}</td>
@@ -66,7 +66,7 @@ class FollowersUser extends React.Component {
                     <thead>
                         
                     </thead>
-                    <tbody>
+                    <tbody style={{fontSize:'15px'}}>
                         {followersList}
                     
                     </tbody>

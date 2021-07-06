@@ -17,13 +17,13 @@ import MainHomeComment from "./MainHomeComment";
 import profile from "./LoginComponent/profile.component";
 import GetSpecificTweet from "./Component/GetSpecificTweet";
 import './styles/mainhome.css';
+import Search from "./Component/Search";
 
 class MainHome extends Component {
     render() {
         return (
             <div>
-
-
+<Router>
                 <ScrollToTop>
                     <div>
                         <div className="mac ">
@@ -32,12 +32,16 @@ class MainHome extends Component {
                                 <Sidebar />
                             </div>
                             <div className="main " style={{backgroundColor:"white"}}>
-                                <TweetBox />
+                            <Switch>
+                        <Route exact path="/mainhome" component={TweetBox}/>
+                    <Route exact path="/profile" component={profile} />
+                    <Route exact path="/search" component={Search}/>
+                    </Switch>
                                 {/* <ShowAllTweets></ShowAllTweets> */}
                                 {/* 
                         <GetComment></GetComment> */}
                                 {/* <AddComment></AddComment> */}
-                                <GetAllTweet />
+                                
                                 {/* <GetSpecificTweet></GetSpecificTweet> */}
                                 {/* <Route exact path="/mainhomecomment" component={MainHomeComment}/>
                         */}
@@ -55,6 +59,7 @@ class MainHome extends Component {
                         </div>
                     </div>
                 </ScrollToTop>
+                </Router>
 
             </div>
         )

@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 import "../styles/Tweet.css";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-
 class GetAllTweet extends React.Component{
 
     
@@ -21,12 +20,10 @@ class GetAllTweet extends React.Component{
         this.state={
             tweet: [],
             show: false,
-            likeComment: 0
+    
         };
       //  this.editUser=this.editUser.bind(this);
     }
-
-    
     
     componentDidMount(){
         axios.get(
@@ -39,13 +36,12 @@ class GetAllTweet extends React.Component{
           //  console.log(this.state.theatres);
         });
     }
-    
-    likecount=(tweet_id, like_count)=>{
+
+    likecount=(tweet_id)=>{
         axios.put(`http://localhost:8080/updatelike/${tweet_id}`,{} ,{ headers: authHeader() } )
         .then((result)=>{
-             
-            this.setState({ likeComment: result.data});
-            //window.location.reload()
+            this.setState({ /* */ })
+            window.location.reload()
             console.log(result);
             // alert("tweet deleted Successfully")
             // this.props.history.push("/admin");
@@ -82,6 +78,7 @@ class GetAllTweet extends React.Component{
         .then((result)=>{
             this.setState({ /* */ })
             window.location.reload()
+
             console.log(result);
             alert("tweet deleted Successfully")
             this.props.history.push("/admin");
@@ -96,9 +93,8 @@ class GetAllTweet extends React.Component{
     // }
     
     render(){
-        
         let cardTweet=this.state.tweet.map(tweet=>(
-            <div  style={{padding:"30px"}}>
+            <div  style={{padding:"50px"}}>
             <div class="card" style={{margin:"0px auto", marginTop:"-40px"}}>
             <div class="card-body">
             <h5 class="card-title">{tweet.user.first_name}&nbsp;&nbsp;{tweet.user.last_name}</h5>
@@ -106,7 +102,7 @@ class GetAllTweet extends React.Component{
               
               <p class="card-text">{tweet.tweet_content}</p>
               <h6 class="card-subtitle mb-2 text-muted" style={{fontSize:"small"}}>{tweet.created_at.split("T")[0]+" "+tweet.created_at.split("T")[1].split(".")[0]}</h6>
-              <h6 class="card-subtitle mb-2 text-muted" style={{fontSize:"medium", color:"white"}}><FontAwesomeIcon icon={faHeart} onClick={()=>this.likecount(tweet.tweet_id, tweet.like_count)}/> : {this.state.likeComment}  &nbsp;&nbsp;&nbsp;   <Link to={`getcomment/${tweet.tweet_id}`} ><FontAwesomeIcon icon={faComment}/> : {tweet.comment_count}</Link></h6>
+              <h6 class="card-subtitle mb-2 text-muted" style={{fontSize:"medium"}}><FontAwesomeIcon icon={faHeart} onClick={()=>this.likecount(tweet.tweet_id)}/> : {tweet.like_count}  &nbsp;&nbsp;&nbsp;   <Link to={`getcomment/${tweet.tweet_id}`} ><FontAwesomeIcon icon={faComment}/> : {tweet.comment_count}</Link></h6>
               {/* <div className="card-content"> */}
               {/* <Link to={`getcomment/${tweet.tweet_id}`} >Add Comment</Link> */}
               {/* <FavoriteBorderIcon/> */}

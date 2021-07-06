@@ -1,0 +1,109 @@
+.container-fluid size{
+    padding: 0px 20px
+}
+.scroll-wrapper scrollbar-inner{
+position: relative
+}
+.scrollbar-inner scroll-content scroll-scrollx_visible scroll-scrolly_visible{
+    height: auto;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    max-height: 572.771px
+}
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 1000px !important;
+    padding:50px !important;
+    margin-left: 45px;
+}
+.coverimg{
+    width: 100%; 
+    height:100%; 
+    object-fit: cover; 
+    object-position: center center;
+}
+.img-fluid rounded-circle{
+    height:150px;
+    width:150px;
+    margin-top: -75px;
+    margin-left:12px; 
+    padding: 5px; 
+    background: white
+}
+.btn btn-outline-primary float-right font-weight-bold {
+    border-radius: 20px;
+    margin-right: 1000px;
+    padding: 20px;
+}
+.btn {
+    display: inline-block;
+    padding: .375rem .75rem;
+}
+.float-right {
+    float: right!important;
+}
+.pr-3, .px-3 {
+    padding-right: 1rem!important;
+}
+.pt-3, .py-3 {
+    padding-top: 1rem!important;
+}
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+.font-weight-bold {
+    font-weight: 700!important;
+}
+.row-no-gutters{
+    display: flex;
+}
+.row{
+    display: flex;
+}
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.font-weight-bolder {
+    font-weight: bolder!important;
+}
+.p-0 {
+    padding: 0!important;
+}
+.mb-0, .my-0 {
+    margin-bottom: 0!important;
+}
+.h4, h4 {
+    font-size: 1.35rem;
+}
+.row no-gutters ml-2 w-100 text-muted{
+    font-family: calibri;
+    font-size: larger;
+}
+.text-muted {
+    color: #6c757d!important;
+}
+.ml-2, .mx-2 {
+    margin-left: .5rem!important;
+}
+.w-100 {
+    width: 100%!important;
+}
+.no-gutters {
+    margin-right: 0;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-2 {
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
+}

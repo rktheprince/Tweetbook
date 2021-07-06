@@ -14,9 +14,12 @@
     font-family: "Fira Sans";
     text-align:"center";
 } */
+
+/* 
 .card{
-    /* background-color: white; */
-}
+    background-color: white; 
+} */
+
 .form-control{
     border-radius: 15px;
 }

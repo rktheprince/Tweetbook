@@ -1,6 +1,7 @@
 package com.demo.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,7 +42,14 @@ public class CommentService {
 
 	public void delete(int id)   
 	{  
+	Optional<Comment> c=commentRepository.findById(id);
+	int i=c.get().getTweet().getTweet_id();
 	commentRepository.deleteById(id);  
+	int k=tweetrepository.findByTweetId1(i)-1;
+	System.out.println(k);
+	System.out.println(i);
+	tweetrepository.setUpdateComment(k,i);
+	//commentRepository.save(comment);
 	}  
 
 	public void update(Comment comment)   

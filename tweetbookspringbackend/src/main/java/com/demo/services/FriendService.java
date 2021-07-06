@@ -101,5 +101,16 @@ public class FriendService {
 	repo.deleteById(friend.getFid());
 
 	}
+	
+	//---get count
+	public int getFollowingCount(int fid) {
+	// TODO Auto-generated method stub
+	return repo.getFollowingCount(fid);
+	}
+
+	 public int getFollowersCount(int follower) {
+	// TODO Auto-generated method stub
+	return repo.getFollowersCount(follower);
+	}
 
 }

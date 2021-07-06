@@ -41,4 +41,9 @@ public interface FriendRepository extends JpaRepository<Friends, Integer>{
 	Friends findByFollowers1(int friends);
 	@Query("select f from Friends f where f.followers=?1 and f.following=?2")
 	Friends findByFollowing2(int follower,int following);
+	
+	@Query("select count(following) from Friends f where f.followers=?1")
+	int getFollowingCount(int fid);
+	@Query("select count(followers) from Friends f where f.following=?1")
+	int getFollowersCount(int follower);
 }

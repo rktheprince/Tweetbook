@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import authHeader from '../LoginService/auth-header';
 import authService from "../LoginService/auth.service";
 import AddComment from "./AddComment";
+import { Sidebar } from "../components/Sidebar";
 class GetComment extends React.Component {
 
 
@@ -110,17 +111,16 @@ class GetComment extends React.Component {
     })
   }
 
-  deletecomment = (e, i) => {
+  deletecomment = (e) => {
     // e.preventDefault();
     axios
       .delete(`http://localhost:8080/DeleteComment/` + e, { headers: authHeader() }
       )
+      
       .then(
-        (result) => {
-          // window.location.reload()
+        (result) =>
+         { window.location.reload()
           alert("Comment is deleted.");
-          this.props.history.push("/getcomment/"+i);
-          console.log(i);
         },
         (error) => {
           alert("Comment is  deleted.");
@@ -136,6 +136,7 @@ class GetComment extends React.Component {
 
     var commentList = this.state.AllComments.map(commentList=>(
       <div style={{ padding: "30px" }}>
+
         <div class="card" style={{ margin: "0px auto", marginTop: "-40px" }}>
           <div class="card-body">
             {/* <h5 class="card-title">{tweet.user.first_name}&nbsp;&nbsp;{tweet.user.last_name}</h5> */}
@@ -143,7 +144,7 @@ class GetComment extends React.Component {
 
             <p class="card-text">{commentList.comment_content}</p>
             <Link exact to={`/DeleteComment/${commentList.comment_id}`}
-              type="button" className="btn" onClick={() => this.deletecomment(commentList.comment_id,this.props.match.params.id)}> Delete
+              type="button" className="btn" onClick={() => this.deletecomment(commentList.comment_id)}> Delete
             </Link>
             {/* <h6 class="card-subtitle mb-2 text-muted" style={{fontSize:"small"}}>{tweet.created_at.split("T")[0]+" "+tweet.created_at.split("T")[1].split(".")[0]}</h6>
         <h6 class="card-subtitle mb-2 text-muted" style={{fontSize:"medium"}}><FontAwesomeIcon icon={faHeart} onClick={()=>this.likecount(tweet.tweet_id)}/> : {tweet.like_count}  &nbsp;&nbsp;&nbsp;   <Link to={`getcomment/${tweet.tweet_id}`} ><FontAwesomeIcon icon={faComment}/> : {tweet.comment_count}</Link></h6> */}
@@ -157,6 +158,10 @@ class GetComment extends React.Component {
 
     return (
       <div className="container-sm">
+       
+       <div className="side-nav col-md-3">
+                                <Sidebar />
+                            </div>
         <div>
           <AddComment>{this.props.match.params.id}</AddComment>
 

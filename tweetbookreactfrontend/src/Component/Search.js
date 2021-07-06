@@ -69,9 +69,7 @@ class Search extends React.Component {
         return (
 
             <div className="row">
-                <div className="side-nav col-md-3">
-                                <Sidebar />
-                            </div>
+                
                 <div className="py-4 col-md-9">
                     <h1 style={{color:'black'}}>Search Users..!!</h1>
                     <input type="text" style={{fontSize:"medium",  padding:"7px"}} className="form-control" id="username" placeholder="Type to search..."

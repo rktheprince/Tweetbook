@@ -78,4 +78,10 @@ public class UserController {
 	public void deleteUser(@PathVariable("user_id") int user_id) {
 		userService.deleteUserById(user_id);
 	}
+	
+	@GetMapping("/ListAllUser")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public List<User1> getAllUser(){
+	return userService.getAllUser();
+	}
 }

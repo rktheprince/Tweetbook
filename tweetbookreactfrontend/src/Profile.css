@@ -8,14 +8,19 @@ position: relative
     height: auto;
     margin-bottom: 0px;
     margin-right: 0px;
-    max-height: 572.771px
+    max-height: 572.771px;
+    /* width: 1000px !important; */
 }
-.card{
-    position: relative;
-    display: flex;
-    flex-direction: column;
+/* 
+.app_body{
     width: 1000px !important;
-    padding:50px !important;
+} */
+.card{
+    position: relative; 
+     display: flex;
+    flex-direction: column; 
+    width: 1000px;
+    padding:50px !important; 
     margin-left: 45px;
 }
 .coverimg{

@@ -71,10 +71,10 @@ alert(this.state.message)
         //this.state.following.map((list,index)=>{return <li> {index+1}  {list} </li>  })
         var followingList= this.state.following.map((list,index)=>{
             return (
-                list==="You are not following user"?<tr><td style={{fontSize:"medium"}}>You are not following user</td></tr>:
+                list==="You are not following user"?<tr><td style={{color:'white', fontSize:'15px'}}>You are not following any user</td></tr>:
             <tr key={index}>
                 {/* <td>{index+1}</td> */}
-                <td style={{fontSize:"medium"}}> @{list}</td>
+                <td style={{color:'white', fontSize:'15px'}}>@{list}</td>
                 <td><button onClick={() => this.handleName(list)} className="btn btn-info">Unfollow </button></td>
             </tr>  )})
         return(
@@ -84,7 +84,7 @@ alert(this.state.message)
                         <thead>
                             
                             </thead>
-                            <tbody>
+                            <tbody >
                                 {followingList}
                             </tbody>
                             </table>
