@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import AuthService from "../LoginService/auth.service";
 import pic from '../images/icon.png';
 import '../App.css';
-
+import icon1 from "../images/icon1.jpg";
 export default class Navigation extends Component {
 
     constructor(props) {
@@ -38,7 +38,7 @@ export default class Navigation extends Component {
             <div className="sticky-top">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <Link class="navbar-brand" style={{color:"#0059fe"}} to="/">
-                        <b><img src={pic} style={{width:"40px", height:"40px", fontFamily:"'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"}} />&nbsp;<span style={{fontSize:"large"}}>TWEETBOOK</span></b>
+                        <b><img src={icon1} style={{width:"40px", height:"40px", fontFamily:"'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"}} />&nbsp;<span style={{fontSize:"large" , color:"#1da1f2"}}>TWEETBOOK</span></b>
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -71,15 +71,19 @@ export default class Navigation extends Component {
                     {currentUser ? (
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item" style={{fontSize:"small"}}>
-                                <Link to={"/profile"} className="nav-link">
+                                <Link to={"/profile"} className="nav-link" style={{color:"#1da1f2"}}>
                                     {currentUser.username}
                                 </Link>
                             </li>
-                            <li className="nav-item" style={{fontSize:"small", color:'black'}}>
-                                <a href="/login" className="nav-link" onClick={this.logOut}>
+                            
+                            
+                            <li className="nav-item" style={{fontSize:"small"}}>
+                                <a href="/login" className="nav-link" onClick={this.logOut} style={{color:"#1da1f2"}} >
                                     Logout
                                 </a>
                             </li>
+
+
                         </ul>
                     ) : (
                         <ul className="navbar-nav ml-auto">

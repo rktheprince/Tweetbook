@@ -18,7 +18,7 @@ class AdminGetAllTweet extends React.Component{
     
     componentDidMount(){
         axios.get(
-            `http://localhost:8080/GetAllTweet`,{ headers: authHeader() } )
+            `http://18.218.227.249:8081/GetAllTweet`,{ headers: authHeader() } )
         .then((result) => {
             console.log(result);
             this.setState({
@@ -31,13 +31,14 @@ class AdminGetAllTweet extends React.Component{
     deletetweet=(tweet_id)=>{
         console.log('click')
         
-        axios.delete(`http://localhost:8080/Delete/${tweet_id}`,{ headers: authHeader() } )
+        axios.delete(`http://18.218.227.249:8081/Delete/${tweet_id}`,{ headers: authHeader() } )
         .then((result)=>{
             this.setState({ /* */ })
-
+           
+            // window.location.reload();
             console.log(result);
             alert("tweet deleted Successfully")
-            this.props.history.push("/admin");
+            this.props.history.push("/adminhome");
         }).catch((error) => {
             alert(JSON.stringify("error: " + error));
         })

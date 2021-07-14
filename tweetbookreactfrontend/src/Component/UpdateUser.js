@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import UserService from '../LoginService/user.service'
 import axios from 'axios';
 import authHeader from '../LoginService/auth-header';
-import "../styles/login.css";
+
 class UpdateUser extends Component {
     constructor(props) {
         super(props)
@@ -72,7 +72,7 @@ class UpdateUser extends Component {
         // }, { headers: authHeader() })
 
         UserService.updateUser(user,this.state.user_id)
-        .then((responseEmpData) => {this.props.history.push('/showallusers');
+        .then((responseEmpData) => {this.props.history.push('/profile');
             // console.log(responseEmpData);
             // alert("Updated Successfully");
         }).catch((error) => {
@@ -113,49 +113,49 @@ class UpdateUser extends Component {
         if(this.state.id === '_add'){
             return <h3 className="text-center">Add Employee</h3>
         }else{
-            return <h3 className="text-center" style={{color:'white',fontSize:'20px'}}>Edit Profile</h3>
+            return <h3 className="text-center">Edit Profile</h3>
         }
     }
     render() {
         return (
             <div>
                 <br></br>
-                   <div  style={{margin:'0px auto'}}>
+                   <div className = "container">
                         <div className = "row">
-                            <div className = "card col-md-6 offset-md-3 offset-md-3" style={{margin:'0px auto'}}>
+                            <div className = "card col-md-6 offset-md-3 offset-md-3" style={{margin:"0px auto", color:"white"}}>
                                 {
                                     this.getTitle()
                                 }
                                 <div className = "card-body">
                                     <form>
                                     <div className = "form-group">
-                                            <label className="label" style={{ fontSize:15,color:'white'}}> User Id: </label>
+                                            <label style={{ fontSize:15, color:"white"}}> User Id: </label>
                                             <input placeholder="User Id" name="userid" className="form-control" style={{fontSize:15}}
                                                 value={this.state.user_id} />
                                         </div>
                                         <div className = "form-group">
-                                            <label className="label" style={{ fontSize:15, color:'white'}}> User Name: </label>
+                                            <label style={{ fontSize:15, color:"white"}}> User Name: </label>
                                             <input placeholder="User Name" name="username" className="form-control" style={{fontSize:15}}
                                                 value={this.state.username} onChange={this.changeUserNameHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label className="label" style={{ fontSize:15, color:'white'}}> First Name: </label>
+                                            <label style={{ fontSize:15, color:"white"}}> First Name: </label>
                                             <input  name="firstName" className="form-control" style={{fontSize:15}}
                                                 value={this.state.first_name} onChange={this.changeFirstNameHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label className="label" style={{ fontSize:15,color:'white'}}> Last Name: </label>
+                                            <label style={{ fontSize:15, color:"white"}}> Last Name: </label>
                                             <input  name="lastName" className="form-control" style={{fontSize:15}}
                                                 value={this.state.last_name} onChange={this.changeLastNameHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label className="label" style={{ fontSize:15,color:'white'}} > Email Id: </label>
+                                            <label style={{ fontSize:15, color:"white"}} > Email Id: </label>
                                             <input name="emailId" className="form-control" style={{fontSize:15}}
                                                 value={this.state.email_id} onChange={this.changeEmailHandler}/>
                                         </div>
 
                                         <div className = "form-group">
-                                            <label className="label" style={{ fontSize:15,color:'white'}}> Phone no: </label>
+                                            <label style={{ fontSize:15, color:"white"}}> Phone no: </label>
                                             <input placeholder="Phone no" name="phoneno" className="form-control" style={{fontSize:15}} 
                                                 value={this.state.phone_no} onChange={this.changePhoneNoHandler}/>
                                         </div>

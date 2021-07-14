@@ -18,7 +18,7 @@ class FollowersUser extends React.Component {
     componentDidMount=()=>{
         const users = authService.getCurrentUser();
         // axios.get(`http://localhost:2211/getfriend/following/${this.props.match.params.id}`)
-        axios.get(`http://localhost:8080/getfriend/follower/${users.id}`, { headers: authHeader() })
+        axios.get(`http://18.218.227.249:8081/getfriend/follower/${users.id}`, { headers: authHeader() })
 
             .then((result) => {
                 this.setState({
@@ -34,7 +34,7 @@ class FollowersUser extends React.Component {
     handleClick1 = () => {
         const users = authService.getCurrentUser();
         // axios.get(`http://localhost:2211/getfriend/following/${this.props.match.params.id}`)
-        axios.get(`http://localhost:8080/getfriend/follower/${users.id}`, { headers: authHeader() })
+        axios.get(`http://18.218.227.249:8081/getfriend/follower/${users.id}`, { headers: authHeader() })
 
             .then((result) => {
                 this.setState({
@@ -52,10 +52,10 @@ class FollowersUser extends React.Component {
         //this.state.following.map((list,index)=>{return <li> {index+1}  {list} </li>  })
         var followersList = this.state.followers.map((list, index) => {
             return (
-                list === "No user is following you" ? <tr><td style={{color:'white'}}> No user is following you</td></tr> :
+                list === "No user is following you" ? <tr><td style={{fontSize:"medium"}}>No user is following you</td></tr> :
                     <tr key={index}>
                         {/* <td>{index+1}</td> */}
-                        <td> {list}</td>
+                        <td style={{fontSize:"medium"}}>@{list}</td>
                    
                     </tr>)
         })
@@ -66,7 +66,7 @@ class FollowersUser extends React.Component {
                     <thead>
                         
                     </thead>
-                    <tbody style={{fontSize:'15px'}}>
+                    <tbody>
                         {followersList}
                     
                     </tbody>

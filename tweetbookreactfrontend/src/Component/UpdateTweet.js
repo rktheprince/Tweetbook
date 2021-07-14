@@ -55,7 +55,7 @@ class UpdateTweet extends React.Component
                }
         }
         console.log(tweet)
-        const url = `http://localhost:8080/Update`;
+        const url = `http://localhost:8081/Update`;
         axios.put(url, {
           // tweet_id:this.props.match.params.id,
           // tweet_content:this.state.tweet_content,

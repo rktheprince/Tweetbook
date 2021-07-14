@@ -17,8 +17,8 @@ class Search extends React.Component {
     }
     handleClick = () => {
         console.log(this.state.users);
-        console.log(`http://localhost:8080/search/username/${this.state.users}`);
-        axios.get(`http://localhost:8080/search/username/${this.state.users}`, { headers: authHeader() }).then((result) => {
+        console.log(`http://18.218.227.249:8081/search/username/${this.state.users}`);
+        axios.get(`http://18.218.227.249:8081/search/username/${this.state.users}`, { headers: authHeader() }).then((result) => {
 
             console.log("Searching....");
             console.log(result);
@@ -31,7 +31,7 @@ class Search extends React.Component {
 
     getFollowingUser = (event) => {
 
-        axios.get(`http://localhost:8080/user/GetByUsername/` + event, { headers: authHeader() })
+        axios.get(`http://18.218.227.249:8081/user/GetByUsername/` + event, { headers: authHeader() })
             .then((response) => {
                 this.setState({
                     following: response.data
@@ -45,7 +45,7 @@ class Search extends React.Component {
     addFollow = (fid) => {
         const ussers = authService.getCurrentUser();
         console.log(ussers)
-        axios.post(`http://localhost:8080/add/following`, {
+        axios.post(`http://18.218.227.249:8081/add/following`, {
             following: fid,
             user: {
                 user_id: ussers.id
@@ -57,7 +57,7 @@ class Search extends React.Component {
                 })
                 alert(this.state.message)
             }).catch((error) => {
-                alert(JSON.stringify("error: " + error));
+                alert("You cannot follow yourself");
             })
 
 
@@ -69,7 +69,9 @@ class Search extends React.Component {
         return (
 
             <div className="row">
-                
+                <div className="side-nav col-md-3 ">
+                                <Sidebar />
+                            </div>
                 <div className="py-4 col-md-9">
                     <h1 style={{color:'black'}}>Search Users..!!</h1>
                     <input type="text" style={{fontSize:"medium",  padding:"7px"}} className="form-control" id="username" placeholder="Type to search..."
@@ -85,14 +87,14 @@ class Search extends React.Component {
                 </div>
 
                 {this.state.user.map(m1 => (
-                    <div class="card" style={{marginLeft:"500px", marginTop:"-80px"}}>
+                    <div class="card" style={{marginLeft:"500px", marginTop:"-800px", height:"240px"}}>
                         <div class="card-body">
                             {/* <h5 class="card-title">{tweet.user.first_name}</h5> */}
                             {/* <h6 class="card-subtitle mb-2 text-muted">{tweet.created_at.split("T")[0]+" "+tweet.created_at.split("T")[1].split(".")[0]}</h6> */}
                             <p class="card-text">{m1.username}</p>
                             <h6 class="card-subtitle" style={{fontSize:"medium"}}>First Name: {m1.first_name}   </h6>
                             <h6 class="card-subtitle" style={{fontSize:"medium"}}>  Last Name: {m1.last_name}</h6>
-                            <button className="mr-4 btn btn-success" onClick={() => this.getFollowingUser(m1.username)}>Follow</button>
+                            <button className="mr-4 btn btn-success" onClick={() => this.getFollowingUser(m1.username)} style={{fontSize:"medium", marginTop:"20px"}}>Follow</button>
                         </div>
 
                     </div>

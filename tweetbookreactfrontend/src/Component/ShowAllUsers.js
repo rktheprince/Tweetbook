@@ -29,7 +29,7 @@ class ShowAllUSers extends Component {
 
     componentDidMount(){
         axios.get(
-            `http://localhost:8080/user/ListAllUsers`,{ headers: authHeader() } )
+            `http://localhost:8081/user/ListAllUsers`,{ headers: authHeader() } )
         .then((result) => {
             console.log(result);
             this.setState({

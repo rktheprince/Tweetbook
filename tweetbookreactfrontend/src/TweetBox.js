@@ -4,7 +4,6 @@ import "./TweetBox.css";
 import axios from "axios";
 import authHeader from './LoginService/auth-header';
 import authService from './LoginService/auth.service';
-import GetAllTweet from "./Component/GetAllTweet";
 class TweetBox extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +15,7 @@ class TweetBox extends React.Component {
       comment_count: 0,
       created_at: null,
       updated_at: null,
+      TweetAddError:"",
       user: [],
       currentuser: []
     }
@@ -37,28 +37,39 @@ class TweetBox extends React.Component {
     console.log(this.state.tweet_content)
     console.log(user.id)
     console.log(this.state.currentuser.id)
+   if(this.state.tweet_content.trim()==="")
+    {
+      // this.setState({
+      //     TweetAddError:"The field is empty"
+      // })
+      // console.log(this.state.TweetAddError);
+      alert("This field is required");
+    }
+    else{
+
+    
     await axios
-      .post(`http://localhost:8080/AddTweet`, {
+      .post(`http://18.218.227.249:8081/AddTweet`, {
         tweet_content: this.state.tweet_content,
         like_count: this.state.like_count,
         comment_count: this.state.comment_count,
         user: {
           user_id: user.id
         }
-        
       }, { headers: authHeader() }).then((response) => {
         window.location.reload()
         console.log(
           "Tweet added for User Id :" + this.state.currentuser.id
         );
         alert(
-          "Tweet  added for User Id :" + this.state.currentuser.id
+          "Tweet added for User Id :" + this.state.currentuser.id
         );
       })
       .catch((error) => {
         alert(error.response.data.message);
       });
   }
+}
   render() {
     return (
       <div style={{padding:"10px"}}>
@@ -73,6 +84,7 @@ class TweetBox extends React.Component {
               placeholder="What's happening?"
               type="text"
             />
+            <p>{this.state.TweetAddError}</p>
 
             <button style={{borderRadius:"15px", width:"100px"}} type="submit" className="btn "
             >
@@ -85,7 +97,6 @@ class TweetBox extends React.Component {
         </form>
       </div>
       <hr />
-      <GetAllTweet></GetAllTweet>
       </div>
     );
 

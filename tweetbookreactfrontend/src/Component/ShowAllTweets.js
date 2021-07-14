@@ -16,7 +16,7 @@ class ShowAllTweets extends React.Component{
     
     componentDidMount(){
         const users=authService.getCurrentUser();
-        axios.get(`http://localhost:8080/GetById/${users.id}`, { headers: authHeader() }).then((responseData) => {
+        axios.get(`http://18.218.227.249:8081/GetById/${users.id}`, { headers: authHeader() }).then((responseData) => {
             console.log(responseData);
             this.setState({ AllTweets: responseData.data })
             // console.log(product.productId);

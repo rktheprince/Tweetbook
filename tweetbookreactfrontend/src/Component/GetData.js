@@ -15,7 +15,7 @@ class GetData extends React.Component{
     
     componentDidMount(){
         axios.get(
-            `http://localhost:8080/GetAllTweet`,{ headers: authHeader() } )
+            `http://localhost:8081/GetAllTweet`,{ headers: authHeader() } )
         .then((result) => {
             console.log(result);
             this.setState({

@@ -8,7 +8,7 @@ class Profile extends React.Component{
     }
 
     componentDidMount(){
-        const url = `http://localhost:8080/user/GetByUsername/${this.state.username}`
+        const url = `http://localhost:8081/user/GetByUsername/${this.state.username}`
         axios.get(url).then((response) => {
             this.setState({
                 user: response.data

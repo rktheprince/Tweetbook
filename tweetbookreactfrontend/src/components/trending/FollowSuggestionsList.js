@@ -14,11 +14,12 @@ export const FollowSuggestionsList = () => {
             handle: '@vijayanpinarayi',
             image: 'https://pbs.twimg.com/profile_images/1179639807506407424/l9apSa2h_bigger.jpg'
         },
-        {
-            name: 'Economic Times',
-            handle: '@EconomicTimes',
-            image: 'https://pbs.twimg.com/profile_images/1077844189893853184/PCBPSQVB_bigger.jpg'
-        }, {
+        // {
+        //     name: 'Economic Times',
+        //     handle: '@EconomicTimes',
+        //     image: 'https://pbs.twimg.com/profile_images/1077844189893853184/PCBPSQVB_bigger.jpg'
+        // }
+        , {
             name: 'Netflix India',
             handle: '@NetflixIndia',
             image: 'https://pbs.twimg.com/profile_images/1072124554808422401/s8K84jEW_bigger.jpg'

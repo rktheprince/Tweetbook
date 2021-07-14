@@ -65,11 +65,14 @@ html {
     padding-left: 10%;
     padding-top : 3rem;
     background-color:#15202b;
+    
+    /* height: 550px; */
 }
 
 .side-nav svg {
     fill : var(--light);
     width: 2.75rem;
+
 }
 
 .side-nav svg:hover {

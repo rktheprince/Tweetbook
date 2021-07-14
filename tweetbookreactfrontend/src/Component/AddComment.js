@@ -139,7 +139,7 @@ class AddComment extends Component{
        var id= this.props.children;
       //  console.log(id);
         await axios
-          .post(`http://localhost:8080/AddComment`, {
+          .post(`http://18.218.227.249:8081/AddComment`, {
             comment_content: this.state.comment_content,
             tweet: {
             tweet_id: id
@@ -171,7 +171,7 @@ class AddComment extends Component{
                   type="text"
                 />
     
-                <button type="submit" style={{width:"200px", marginLeft:"10px"}} className="btn btn-primary"
+                <button type="submit" style={{width:"200px", marginLeft:"10px", fontSize:"medium"}} className="btn btn-primary"
                 >
                   Add Comment
                 </button>

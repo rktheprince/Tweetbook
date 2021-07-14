@@ -27,7 +27,7 @@ class GetAllTweet extends React.Component{
     
     componentDidMount(){
         axios.get(
-            `http://localhost:8080/GetAllTweet`,{ headers: authHeader() } )
+            `http://18.218.227.249:8081/GetAllTweet`,{ headers: authHeader() } )
         .then((result) => {
             console.log(result);
             this.setState({
@@ -38,7 +38,7 @@ class GetAllTweet extends React.Component{
     }
 
     likecount=(tweet_id)=>{
-        axios.put(`http://localhost:8080/updatelike/${tweet_id}`,{} ,{ headers: authHeader() } )
+        axios.put(`http://18.218.227.249:8081/updatelike/${tweet_id}`,{} ,{ headers: authHeader() } )
         .then((result)=>{
             this.setState({ /* */ })
             window.location.reload()
@@ -74,11 +74,10 @@ class GetAllTweet extends React.Component{
     deletetweet=(tweet_id)=>{
         console.log('click')
         
-        axios.delete(`http://localhost:8080/Delete/${tweet_id}`,{ headers: authHeader() } )
+        axios.delete(`http://18.218.227.249:8081/Delete/${tweet_id}`,{ headers: authHeader() } )
         .then((result)=>{
             this.setState({ /* */ })
             window.location.reload()
-
             console.log(result);
             alert("tweet deleted Successfully")
             this.props.history.push("/admin");
@@ -94,7 +93,7 @@ class GetAllTweet extends React.Component{
     
     render(){
         let cardTweet=this.state.tweet.map(tweet=>(
-            <div  style={{padding:"50px"}}>
+            <div  style={{padding:"30px"}}>
             <div class="card" style={{margin:"0px auto", marginTop:"-40px"}}>
             <div class="card-body">
             <h5 class="card-title">{tweet.user.first_name}&nbsp;&nbsp;{tweet.user.last_name}</h5>
@@ -165,7 +164,7 @@ class GetAllTweet extends React.Component{
             <div>
                 {/* <h1><span className="badge badge-light">View Tweets</span> */}
                 <h1></h1>
-                {cardTweet}
+                {cardTweet.reverse()}
 
             </div>
         );
